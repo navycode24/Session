@@ -25,5 +25,4 @@
 
 from bot import app
 
-await app.start()
-await app.stop()
+app.run()

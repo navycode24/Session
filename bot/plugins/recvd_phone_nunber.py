@@ -26,12 +26,13 @@ from bot import (
     AKTIFPERINTAH,
     ALREADY_REGISTERED_PHONE,
     CONFIRM_SENT_VIA,
-    RECVD_PHONE_NUMBER_DBP
+    RECVD_PHONE_NUMBER_DBP,
+    app
 )
 from bot.user import User
 
 
-@Client.on_message(
+@app.on_message(
     filters.text &
     filters.private,
     group=1

@@ -1,5 +1,5 @@
 from uvloop import install
-from bot import app, aiosession, event_loop
+from bot import *
 
 
 

@@ -6,3 +6,4 @@ aiosqlite>=0.16.0,<0.18.0
 python-dotenv
 apscheduler
 aiohttp
+uvloop

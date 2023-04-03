@@ -28,11 +28,12 @@ from pyrogram.errors import (
 from bot import (
     AKTIFPERINTAH,
     TFA_CODE_IN_VALID_ERR_TEXT,
-    SESSION_GENERATED_USING
+    SESSION_GENERATED_USING,
+    app
 )
 
 
-@Client.on_message(
+@app.on_message(
     filters.text &
     filters.private,
     group=3

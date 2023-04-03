@@ -3,6 +3,7 @@ import logging
 import asyncio
 from dotenv import load_dotenv
 from logging.handlers import RotatingFileHandler
+from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from aiohttp import ClientSession
 from pyrogram import (
     Client,

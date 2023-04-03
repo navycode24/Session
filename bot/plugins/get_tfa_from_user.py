@@ -53,15 +53,11 @@ async def recv_tg_tfa_message(_, message: Message):
         await loical_ci.check_password(tfa_code)
     except PasswordHashInvalid:
         await message.reply_text(
-            TFA_CODE_IN_VALID_ERR_TEXT
+            "Kode yang anda masukkan salah, coba masukan kembali atau mulai dari awal",
         )
         del AKTIFPERINTAH[message.chat.id]
     else:
         saved_message_ = await message.reply_text(
             "<code>" + str(await loical_ci.export_session_string()) + "</code>"
-        )
-        await saved_message_.reply_text(
-            SESSION_GENERATED_USING,
-            quote=True
         )
     raise message.stop_propagation()

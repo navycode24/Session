@@ -7,7 +7,7 @@ AKTIFPERINTAH = {}
 load_dotenv(".env")
 
 
-API_ID = int(getenv("API_ID", ""))
+APP_ID = int(getenv("APP_ID", ""))
 API_HASH = getenv("API_HASH", "")
 TG_BOT_TOKEN = getenv("TG_BOT_TOKEN")
 TG_BOT_WORKERS = int(getenv("TG_BOT_WORKERS", "4"))

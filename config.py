@@ -9,6 +9,7 @@ load_dotenv(".env")
 
 APP_ID = int(getenv("APP_ID", ""))
 API_HASH = getenv("API_HASH", "")
+SESSION = getenv("SESSION", "")
 TG_BOT_TOKEN = getenv("TG_BOT_TOKEN")
 TG_BOT_WORKERS = int(getenv("TG_BOT_WORKERS", "4"))
 COMMM_AND_PRE_FIX = getenv("COMMM_AND_PRE_FIX", "/")

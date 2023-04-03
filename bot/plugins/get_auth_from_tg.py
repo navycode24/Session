@@ -31,11 +31,12 @@ from bot import (
     AKTIFPERINTAH,
     PHONE_CODE_IN_VALID_ERR_TEXT,
     RECVD_PHONE_CODE,
-    SESSION_GENERATED_USING
+    SESSION_GENERATED_USING,
+    app
 )
 
 
-@Client.on_message(
+@app.on_message(
     filters.text &
     filters.private,
     group=2

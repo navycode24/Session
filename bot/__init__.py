@@ -7,7 +7,7 @@ from pyrogram import (
     __version__,
     enums
 )
-
+from config import *
 
 logging.basicConfig(
     level=logging.INFO,
@@ -29,13 +29,6 @@ def LOGGER(name: str) -> logging.Logger:
     """ get a Logger object """
     return logging.getLogger(name)
 
-
-from config import (
-    API_HASH,
-    APP_ID,
-    TG_BOT_TOKEN,
-    TG_BOT_WORKERS,
-)
 
 
 class Bot(Client):

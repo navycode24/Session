@@ -27,11 +27,12 @@ from bot import (
     COMMM_AND_PRE_FIX,
     START_COMMAND,
     START_OTHER_USERS_TEXT,
-    INPUT_PHONE_NUMBER
+    INPUT_PHONE_NUMBER,
+    app,
 )
 
 
-@Client.on_message(
+@app.on_message(
     filters.command(START_COMMAND, COMMM_AND_PRE_FIX) &
     filters.private
 )

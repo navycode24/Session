@@ -1,18 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-# (c) Shrimadhav U K
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU Affero General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU Affero General Public License for more details.
-
-# You should have received a copy of the GNU Affero General Public License
-# along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
 from pyrogram import (
@@ -67,24 +52,18 @@ async def recv_tg_code_message(_, message: Message):
             phone_code
         )
     except BadRequest as e:
-        await status_message.edit_text(
-            e.MESSAGE + "\n\n" + PHONE_CODE_IN_VALID_ERR_TEXT
+        await status_message.reply_text(
+          f"{e} \n\nKode yang anda masukkan salah, coba masukan kembali atau mulai dari awal"
         )
         del AKTIFPERINTAH[message.chat.id]
     except SessionPasswordNeeded:
-        await status_message.edit_text(
-            ACC_PROK_WITH_TFA
+        await status_message.reply_text(
+          "Verifikasi 2 Langkah Diaktifkan, Mohon Masukkan Verifikasi 2 Langkah Anda."
         )
         w_s_dict["IS_NEEDED_TFA"] = True
     else:
         saved_message_ = await status_message.edit_text(
             "<code>" + str(await loical_ci.export_session_string()) + "</code>"
         )
-        await saved_message_.reply_text(
-            SESSION_GENERATED_USING,
-            quote=True
-        )
-        del AKTIFPERINTAH[message.chat.id]
-        return False
     AKTIFPERINTAH[message.chat.id] = w_s_dict
     raise message.stop_propagation()

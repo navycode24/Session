@@ -50,7 +50,6 @@ class Bot(Client):
             api_hash=API_HASH,
             api_id=APP_ID,
             bot_token=TG_BOT_TOKEN,
-            session_string=SESSION,
             plugins={
                 "root": "bot/plugins"
             },

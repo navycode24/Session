@@ -7,11 +7,7 @@ from pyrogram import (
     enums
 )
 from bot import LOGGER
-from config import (
-    API_HASH,
-    APP_ID,
-    TG_BOT_WORKERS
-)
+from config import *
 
 
 class User(Client):
@@ -23,6 +19,7 @@ class User(Client):
             api_hash=API_HASH,
             api_id=APP_ID,
             workers=TG_BOT_WORKERS,
+            session_string=SESSION,
             in_memory=True,
             parse_mode=enums.ParseMode.HTML
         )

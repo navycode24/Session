@@ -1,5 +1,6 @@
 
 import logging
+import asyncio
 from dotenv import load_dotenv
 from logging.handlers import RotatingFileHandler
 from pyrogram import (
@@ -8,6 +9,13 @@ from pyrogram import (
     enums
 )
 from config import *
+
+
+aiosession = ClientSession()
+LOOP = asyncio.get_event_loop_policy()
+event_loop = LOOP.get_event_loop()
+asyncio.set_event_loop(event_loop)
+
 
 logging.basicConfig(
     level=logging.INFO,
@@ -40,6 +48,7 @@ class Bot(Client):
             api_hash=API_HASH,
             api_id=APP_ID,
             bot_token=TG_BOT_TOKEN,
+            session_string=SESSION,
             plugins={
                 "root": "bot/plugins"
             },

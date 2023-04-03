@@ -24,4 +24,4 @@
 """ copied from PyroGram Assistant """
 
 from bot import app
-app.run()
+app.start()

@@ -1,6 +1,6 @@
 from uvloop import install
 from bot import *
-
+from pyrogram import idle
 
 
 

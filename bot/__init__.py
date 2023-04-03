@@ -19,7 +19,7 @@ import logging
 from dotenv import load_dotenv
 from logging.handlers import RotatingFileHandler
 from bot.get_config import get_config
-
+from .bot import Bot
 # apparently, no error appears even if the path does not exists
 load_dotenv("config.env")
 
@@ -108,3 +108,6 @@ ACC_PROK_WITH_TFA = get_config("ACC_PROK_WITH_TFA", (
 SESSION_GENERATED_USING = get_config("SESSION_GENERATED_USING", (
     "Terima kasih telah menggunakan bot ini ..."
 ))
+
+
+app = Bot()

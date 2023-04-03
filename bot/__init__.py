@@ -3,6 +3,7 @@ import logging
 import asyncio
 from dotenv import load_dotenv
 from logging.handlers import RotatingFileHandler
+from aiohttp import ClientSession
 from pyrogram import (
     Client,
     __version__,

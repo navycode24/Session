@@ -63,8 +63,9 @@ async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bo
         return
     api_hash = api_hash_msg.text
     """
+    await asyncio.sleep(1.0)
     if not is_bot:
-        t = "**Woy bangsat kirim nomer akun telegram lu.** \n**Contoh** : `+6214045` **jink laper gua**"
+        t = "**Woy Bangsat Kirim Nomer Akun Telegram Lu.** \n**Contoh** : `+6214045` **Jing Jadi Laper Gua**"
     else:
         t = "Now please send your `BOT_TOKEN` \nExample : `12345:abcdefghijklmnopqrstuvwxyz`'"
     phone_number_msg = await bot.ask(user_id, t, filters=filters.text)
@@ -100,7 +101,7 @@ async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bo
     try:
         phone_code_msg = None
         if not is_bot:
-            phone_code_msg = await bot.ask(user_id, "**Eh Bangsat periksa OTP di akun telegram resmi. Kalo cepet kirim OTP ke sini.** \n **Cara Masukin OTP kek gini** `1 2 3 4 5`\n**Jangan Salah Ya Nyet.**", filters=filters.text, timeout=600)
+            phone_code_msg = await bot.ask(user_id, "**Eh Bangsat periksa OTP Di Akun Telegram Lu, Buru cepet kirim OTP ke sini.** \n **Cara Masukin OTP kek gini** `1 2 3 4 5`\n**Jangan Salah Ya Nyet.**", filters=filters.text, timeout=600)
             if await cancelled(phone_code_msg):
                 return
     except TimeoutError:
@@ -114,7 +115,7 @@ async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bo
             else:
                 await client.sign_in(phone_number, code.phone_code_hash, phone_code)
         except (PhoneCodeInvalid, PhoneCodeInvalidError):
-            await msg.reply('**Kode nya salah monyet, Mata Lu Buta Apa Gimana.**', reply_markup=InlineKeyboardMarkup(Data.generate_button))
+            await msg.reply('**Kode Nya Salah Monyet, Mata Lu Buta Apa Gimana.**', reply_markup=InlineKeyboardMarkup(Data.generate_button))
             return
         except (PhoneCodeExpired, PhoneCodeExpiredError):
             await msg.reply('**Goblok, Dibilang Pake Spasi Tiap Kode.**', reply_markup=InlineKeyboardMarkup(Data.generate_button))
@@ -126,7 +127,7 @@ async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bo
                 await msg.reply('**Anjeng, Demen Banget Ngaret Jadi Manusia**', reply_markup=InlineKeyboardMarkup(Data.generate_button))
                 return
             try:
-                salah = await msg.reply("**Ga Jelas Lu Anjeng**")
+                salah = await msg.reply("**Udah Jadi Nih Jing, Bentar**")
                 password = two_step_msg.text
                 if telethon:
                     await client.sign_in(password=password)
@@ -146,7 +147,7 @@ async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bo
         string_session = client.session.save()
     else:
         string_session = await client.export_session_string()
-    text = f"**{ty.upper()} Dah Jadi Nyet** \n\n`{string_session}` \n\n**Bilang Makasih Kek Nyet Ke** @KynanSupport"
+    text = f"**{ty.upper()} NIH JING.** \n\n`{string_session}` \n\n**Minimal Bilang Makasih Ke** @Rizzvbss **Atau Ke** @KynanSupport **Karna Akun Lu Kaga Deak**"
     try:
         if not is_bot:
             await client.send_message("me", text)
@@ -155,7 +156,8 @@ async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bo
     except KeyError:
         pass
     await client.disconnect()
-    await bot.send_message(msg.chat.id, " {} **Dah Jadi Ya Bangsat.** \n\n**Cek Pesan Tersimpan Lu Yang Banyak Bokep Nya!** \n\nBy @KynanSupport".format("telethon" if telethon else "pyrogram"))
+    await asyncio.sleep(1.0)
+    await bot.send_message(msg.chat.id, " {} **Dah Jadi Ya Bangsat.** \n\n**Cek Pesan Tersimpan Lu Yang Banyak Bokep Nya!** \n\n**Minimal Bilang Makasih Ke** @Rizzvbss **Atau Ke** @KynanSupport **Karna Akun Lu Kaga Deak**".format("telethon" if telethon else "pyrogram"))
 
 
 async def cancelled(msg):

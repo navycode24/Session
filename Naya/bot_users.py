@@ -28,3 +28,26 @@ async def _stats(_, msg: Message):
         return
     users = await num_users()
     await msg.reply(f"Total Users : {users}", quote=True)
+    
+    
+@Client.on_message(filters.user(GUA) & filters.command("bacot"))
+async def gcast_handler(bot: Client, message):
+    if len(message.command) > 1:
+        text = ' '.join(message.command[1:])
+    elif message.reply_to_message is not None:
+        text = message.reply_to_message.text
+    else:
+        await message.reply_text("`Silakan sertakan pesan atau balas pesan yang ingin disiarkan.`")
+        return
+    if message.from_user.id not in GUA:
+        await message.reply_text("Maaf, hanya ADMINS yang diizinkan menggunakan perintah ini.")
+    babi = await num_users()
+    monyet = len(babi)
+    total_babi = 0
+    for user_id in babi:
+        try:
+            await bot.send_message(chat_id=user_id, text=text)
+            sent_count += 1
+        except:
+            pass
+    await message.reply_text(f"Pesan siaran berhasil dikirim kepada {total_babi} dari {monyet} pengguna.")

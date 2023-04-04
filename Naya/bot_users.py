@@ -42,7 +42,6 @@ async def gcast_handler(bot: Client, message):
     if message.from_user.id not in GUA:
         await message.reply_text("Maaf, hanya ADMINS yang diizinkan menggunakan perintah ini.")
     babi = await num_users()
-    monyet = int(babi)
     total_babi = 0
     for user_id in babi:
         try:
@@ -50,4 +49,4 @@ async def gcast_handler(bot: Client, message):
             sent_count += 1
         except:
             pass
-    await message.reply_text(f"Pesan siaran berhasil dikirim kepada {total_babi} dari {monyet} pengguna.")
+    await message.reply_text(f"Pesan siaran berhasil dikirim kepada {total_babi} dari {len(babi)} pengguna.")

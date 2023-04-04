@@ -3,7 +3,7 @@ from pyrogram import Client, filters
 
 from env import DATABASE_URL
 from .basic import GUA
-
+from bot import app
 if DATABASE_URL != '':
     from Naya.database import SESSION
     from Naya.database.users_sql import Users, num_users, sempak

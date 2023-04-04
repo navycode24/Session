@@ -28,8 +28,8 @@ from data import Data
 ask_ques = "Silakan Pilih Ya Anjeng Lu Mo Buat Apa"
 buttons_ques = [
     [
-        InlineKeyboardButton("Pyrogram", callback_data="pyrogram_bot"),
-        InlineKeyboardButton("Telethon", callback_data="telethon_bot"),
+        InlineKeyboardButton("Pyrogram", callback_data="pyrogram"),
+        InlineKeyboardButton("Telethon", callback_data="telethon"),
     ],
 """
     [

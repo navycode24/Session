@@ -33,3 +33,11 @@ async def num_users():
             return SESSION.query(Users).count()
         finally:
             SESSION.close()
+
+async def sempak():
+    if DATABASE_URL !="":
+        try:
+            users = SESSION.query(Users).all()
+            return [user for user in users]
+        finally:
+            SESSION.close()

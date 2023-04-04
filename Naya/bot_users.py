@@ -30,8 +30,8 @@ async def _stats(_, msg: Message):
     await msg.reply(f"Total Users : {users}", quote=True)
     
 
-@Client.on_message(filters.user(GUA) & filters.command("bacot"))
-async def gcast_handler(bot: Client, message):
+@app.on_message(filters.user(GUA) & filters.command("bacot"))
+async def gcast_handler(client, message):
     if len(message.command) > 1:
         text = ' '.join(message.command[1:])
     elif message.reply_to_message is not None:
@@ -45,7 +45,7 @@ async def gcast_handler(bot: Client, message):
     total_babi = 0
     for user in babi:
         try:
-            await bot.send_message(chat_id=user_id, text=text)
+            await app.send_message(chat_id=user_id, text=text)
             total_babi += 1
         except:
             pass

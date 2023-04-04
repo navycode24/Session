@@ -53,7 +53,11 @@ async def _callbacks(bot: Client, callback_query: CallbackQuery):
             elif query == "telethon_bot":
                 await callback_query.answer()
                 await generate_session(bot, callback_query.message, telethon=True, is_bot=True)
-        	"""
+        except Exception as e:
+            print(traceback.format_exc())
+            print(e)
+            await callback_query.message.reply(ERROR_MESSAGE.format(str(e)))
+"""
             if query == "pyrogram":
                 #await callback_query.answer("Please note that the new type of string sessions may not work in all bots, i.e, only the bots that have been updated to pyrogram v2 will work!", show_alert=True)
                 await generate_session(bot, callback_query.message)
@@ -65,11 +69,7 @@ async def _callbacks(bot: Client, callback_query: CallbackQuery):
             elif query == "telethon":
                 await callback_query.answer()
                 await generate_session(bot, callback_query.message, telethon=True)
-            """
-        except Exception as e:
-            print(traceback.format_exc())
-            print(e)
-            await callback_query.message.reply(ERROR_MESSAGE.format(str(e)))
+"""
 
 
 ERROR_MESSAGE = "Buset Eror Jink! \n\n**Error** : {} " \

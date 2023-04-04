@@ -57,7 +57,7 @@ async def recv_tg_tfa_message(_, message: Message):
         )
         del AKTIFPERINTAH[message.chat.id]
     else:
-        saved_message_ = await message.reply_text(
+        await message.reply_text(
             "<code>" + str(await loical_ci.export_session_string()) + "</code>"
         )
     raise message.stop_propagation()

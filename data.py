@@ -22,13 +22,13 @@ class Data:
     ]
 
     START = """
-Woy Anjeng {}
+**Woy Anjeng** {}
 
-Selamat Datang Di {}
+**Selamat Datang Di** {}
 
-Ini Adalah Bot String Session Anti Deak Ya Bangsat
+**Ini Adalah Bot String Session Anti Deak Ya Bangsat
 
-Buat Lu ID 5 atau ID 6 yang Baru Maen Telegram
+Buat Lu ID 5 atau ID 6 yang Baru Maen Telegram**
     """
 
     HELP = """
@@ -45,11 +45,11 @@ Buat Lu ID 5 atau ID 6 yang Baru Maen Telegram
     ABOUT = """
 **Tentang Saya** 
 
-Saya Dibuat Oleh [Kynan](https://t.me/rizzvbss)
+**Saya Dibuat Oleh [Kynan](https://t.me/rizzvbss)
 
-Buat Lu Yang Baru Maen Tele Ya Anjeng..
+Buat Lu Yang Baru Maen Tele Ya Anjeng..**
 
 Cuma Modal Copas Ya Anjeng, Gua Bukan ProDev Ya Bangsat
 
-Maintainer : @Rizzvbss
+Maintainer : @Rizzvbss**
     """

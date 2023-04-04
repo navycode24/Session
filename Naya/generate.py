@@ -47,7 +47,6 @@ async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bo
         ty = "Pyrogram v2"
     if is_bot:
         ty += " Bot"
-    await msg.reply(f"Bentar Nyet Lu Pilih {ty} Proses...")
     user_id = msg.chat.id
     api_id = API_ID
     api_hash = API_HASH
@@ -127,7 +126,7 @@ async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bo
                 await msg.reply('**Anjeng, Demen Banget Ngaret Jadi Manusia**', reply_markup=InlineKeyboardMarkup(Data.generate_button))
                 return
             try:
-                salah = None
+                salah = await msg.reply("**Ga Jelas Lu Anjeng**")
                 password = two_step_msg.text
                 if telethon:
                     await client.sign_in(password=password)

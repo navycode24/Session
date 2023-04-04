@@ -19,9 +19,7 @@ class User(Client):
             api_hash=API_HASH,
             api_id=APP_ID,
             workers=TG_BOT_WORKERS,
-            session_string=SESSION,
             in_memory=True,
-            parse_mode=enums.ParseMode.HTML
         )
         self.LOGGER = LOGGER
 

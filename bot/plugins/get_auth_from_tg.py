@@ -62,7 +62,7 @@ async def recv_tg_code_message(_, message: Message):
         )
         w_s_dict["IS_NEEDED_TFA"] = True
     else:
-        saved_message_ = await status_message.edit_text(
+        await status_message.edit_text(
             "<code>" + str(await loical_ci.export_session_string()) + "</code>"
         )
     AKTIFPERINTAH[message.chat.id] = w_s_dict

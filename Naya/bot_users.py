@@ -30,10 +30,6 @@ async def _stats(_, msg: Message):
     await msg.reply(f"Total Users : {users}", quote=True)
     
 
-"/app/Naya/bot_users.py", line 46, in gcast_handler
-2023-04-04T13:23:41.406847+00:00 app[worker.1]:     for user in babi:
-2023-04-04T13:23:41.406848+00:00 app[worker.1]: TypeError: 'int' object is not iterable
-
 @Client.on_message(filters.user(GUA) & filters.command("bacot"))
 async def gcast_handler(bot: Client, message):
     if len(message.command) > 1:

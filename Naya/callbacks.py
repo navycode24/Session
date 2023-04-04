@@ -48,7 +48,7 @@ async def _callbacks(bot: Client, callback_query: CallbackQuery):
     elif query.startswith("pyrogram") or query.startswith("telethon"):
         try:
             if query == "pyrogram":
-                await callback_query.answer("Inget Ya Bangsat, Ini Buat Pyrogram V2 bukan V1", show_alert=True)
+#              await callback_query.answer("Inget Ya Bangsat, Ini Buat Pyrogram V2 bukan V1", show_alert=True)
                 await generate_session(bot, callback_query.message)
             elif query == "telethon":
                 await callback_query.answer()

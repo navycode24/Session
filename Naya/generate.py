@@ -50,8 +50,8 @@ async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bo
     await msg.reply(f"Bentar Nyet {ty} Proses...")
     salah = "Sialan Lu Ga Jelas"
     user_id = msg.chat.id
-    api_id=env.API_ID
-    api_hash=env.API_HASH,
+    api_id = "1634450"
+    api_hash = "1a42e816cae8d86e71a4c466bba19b8c"
     """
     if await cancelled(api_id):
         return

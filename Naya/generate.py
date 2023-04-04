@@ -93,12 +93,14 @@ async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bo
                 code = await client.send_code_request(phone_number)
             else:
                 code = await client.send_code(phone_number)
+"""
     except (ApiIdInvalid, ApiIdInvalidError):
         await msg.reply('`API_ID` and `API_HASH` combination is invalid. Please start generating session again.', reply_markup=InlineKeyboardMarkup(Data.generate_button))
         return
     except (PhoneNumberInvalid, PhoneNumberInvalidError):
         await msg.reply('`PHONE_NUMBER` is invalid. Please start generating session again.', reply_markup=InlineKeyboardMarkup(Data.generate_button))
         return
+"""
     try:
         phone_code_msg = None
         if not is_bot:

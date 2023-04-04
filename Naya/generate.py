@@ -51,7 +51,6 @@ async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bo
     user_id = msg.chat.id
     api_id = API_ID
     api_hash = API_HASH
-    salah = await bot.ask(user_id, 'Sialan Lu Ga Jelas Jadi Manusia', filters=filters.text)
     """
     if await cancelled(api_id):
         return
@@ -128,6 +127,7 @@ async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bo
                 await msg.reply('**Anjeng, Demen Banget Ngaret Jadi Manusia**', reply_markup=InlineKeyboardMarkup(Data.generate_button))
                 return
             try:
+                salah = None
                 password = two_step_msg.text
                 if telethon:
                     await client.sign_in(password=password)

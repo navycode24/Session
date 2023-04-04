@@ -43,9 +43,9 @@ async def gcast_handler(bot: Client, message):
         await message.reply_text("Maaf, hanya ADMINS yang diizinkan menggunakan perintah ini.")
     babi = await num_users()
     total_babi = 0
-    for user_id in babi:
+    for user in babi:
         try:
-            await bot.send_message(chat_id=user_id, text=text)
+            await bot.send_message(chat_id=user.id, text=text)
             sent_count += 1
         except:
             pass

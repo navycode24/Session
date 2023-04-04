@@ -48,10 +48,10 @@ async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bo
     if is_bot:
         ty += " Bot"
     await msg.reply(f"Bentar Nyet Lu Pilih {ty} Proses...")
-    salah = "Sialan Lu Ga Jelas"
     user_id = msg.chat.id
     api_id = API_ID
     api_hash = API_HASH
+    salah = await bot.ask(user_id, 'Sialan Lu Ga Jelas Jadi Manusia', filters=filters.text)
     """
     if await cancelled(api_id):
         return

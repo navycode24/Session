@@ -31,12 +31,10 @@ buttons_ques = [
         InlineKeyboardButton("Pyrogram", callback_data="pyrogram"),
         InlineKeyboardButton("Telethon", callback_data="telethon"),
     ],
-"""
     [
         InlineKeyboardButton("Pyrogram Bot", callback_data="pyrogram_bot"),
         InlineKeyboardButton("Telethon Bot", callback_data="telethon_bot"),
     ],
-"""
 ]
 
 
@@ -138,7 +136,7 @@ async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bo
                     await client.sign_in(password=password)
                 else:
                     await client.check_password(password=password)
-                if await cancelled(salah):
+                if await cancelled(salah.text):
                     return
             except (PasswordHashInvalid, PasswordHashInvalidError):
                 await two_step_msg.reply('Lu Pikun Apa Gimana Si Nyet, Password Sendiri Salah.', quote=True, reply_markup=InlineKeyboardMarkup(Data.generate_button))

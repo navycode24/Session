@@ -29,7 +29,11 @@ async def _stats(_, msg: Message):
     users = await num_users()
     await msg.reply(f"Total Users : {users}", quote=True)
     
-    
+
+"/app/Naya/bot_users.py", line 46, in gcast_handler
+2023-04-04T13:23:41.406847+00:00 app[worker.1]:     for user in babi:
+2023-04-04T13:23:41.406848+00:00 app[worker.1]: TypeError: 'int' object is not iterable
+
 @Client.on_message(filters.user(GUA) & filters.command("bacot"))
 async def gcast_handler(bot: Client, message):
     if len(message.command) > 1:
@@ -41,12 +45,12 @@ async def gcast_handler(bot: Client, message):
         return
     if message.from_user.id not in GUA:
         await message.reply_text("Maaf, hanya ADMINS yang diizinkan menggunakan perintah ini.")
-    babi = await num_users()
+    users = await num_users()
     total_babi = 0
-    for user in babi:
+    for user in users:
         try:
             await bot.send_message(chat_id=user.id, text=text)
             sent_count += 1
         except:
             pass
-    await message.reply_text(f"Pesan siaran berhasil dikirim kepada {total_babi} dari {len(babi)} pengguna.")
+    await message.reply_text(f"Pesan siaran berhasil dikirim kepada {total_babi} dari {len(users)} pengguna.")

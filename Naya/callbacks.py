@@ -45,7 +45,7 @@ async def _callbacks(bot: Client, callback_query: CallbackQuery):
     elif query == "generate":
         await callback_query.answer()
         await callback_query.message.reply(ask_ques, reply_markup=InlineKeyboardMarkup(buttons_ques))
-    elif query.startswith("pyrogram") or query.startswith("telethon"):
+    elif query.startswith("pyrogram_bot") or query.startswith("telethon_bot"):
         try:
             if query == "pyrogram_bot":
                 await callback_query.answer("Inget Ya Bangsat, Ini Buat Pyrogram V2 bukan V1", show_alert=True)

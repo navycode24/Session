@@ -45,14 +45,14 @@ async def _callbacks(bot: Client, callback_query: CallbackQuery):
     elif query == "generate":
         await callback_query.answer()
         await callback_query.message.reply(ask_ques, reply_markup=InlineKeyboardMarkup(buttons_ques))
-    elif query.startswith("pyrogram_bot") or query.startswith("telethon_bot"):
+    elif query.startswith("pyrogram") or query.startswith("telethon"):
         try:
-            if query == "pyrogram_bot":
+            if query == "pyrogram":
                 await callback_query.answer("Inget Ya Bangsat, Ini Buat Pyrogram V2 bukan V1", show_alert=True)
-                await generate_session(bot, callback_query.message, is_bot=True)
-            elif query == "telethon_bot":
+                await generate_session(bot, callback_query.message)
+            elif query == "telethon":
                 await callback_query.answer()
-                await generate_session(bot, callback_query.message, telethon=True, is_bot=True)
+                await generate_session(bot, callback_query.message, telethon=True)
         except Exception as e:
             print(traceback.format_exc())
             print(e)

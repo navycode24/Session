@@ -78,13 +78,13 @@ async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bo
     else:
         await msg.reply("Bentar Nyet...")
     if telethon and is_bot:
-        client = TelegramClient(StringSession(), api_id, api_hash)
+        client = TelegramClient(StringSession(), api_id=api_id, api_hash=api_hash)
     elif telethon:
-        client = TelegramClient(StringSession(), api_id, api_hash)
+        client = TelegramClient(StringSession(), api_id=api_id, api_hash=api_hash)
     elif is_bot:
-        client = Client(name=f"bot_{user_id}", api_id, api_hash, bot_token=phone_number, in_memory=True)
+        client = Client(name=f"bot_{user_id}", api_id=api_id, api_hash=api_hash, bot_token=phone_number, in_memory=True)
     else:
-        client = Client(name=f"user_{user_id}", api_id, api_hash, in_memory=True)
+        client = Client(name=f"user_{user_id}", api_id=api_id, api_hash=api_hash, in_memory=True)
     await client.connect()
     try:
         code = None

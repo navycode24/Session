@@ -48,7 +48,7 @@ async def _callbacks(bot: Client, callback_query: CallbackQuery):
     elif query.startswith("pyrogram") or query.startswith("telethon"):
         try:
             if query == "pyrogram":
-                #await callback_query.answer("Please note that the new type of string sessions may not work in all bots, i.e, only the bots that have been updated to pyrogram v2 will work!", show_alert=True)
+                await callback_query.answer("Please note that the new type of string sessions may not work in all bots, i.e, only the bots that have been updated to pyrogram v2 will work!", show_alert=True)
                 await generate_session(bot, callback_query.message)
                 """
             # Maybe in future it'll come back.
